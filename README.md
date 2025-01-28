@@ -33,12 +33,6 @@ Before setting up the app, ensure you have the following installed:
 
 ## Setup and Installation
 
-### Clone the Repository
-```bash
-git clone <repo_url>
-cd <repo_name>
-```
-
 ### Install Dependencies
 
 ```bash
@@ -124,17 +118,4 @@ Troubleshooting
 
 * * *
 
-Contributions
--------------
 
-Contributions are welcome! Submit a pull request with a detailed description of your changes.
-
-* * *
-
-License
--------
-
-This project is open-source and available under the **MIT License**.
-
-```
-```
