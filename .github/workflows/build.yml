@@ -1,4 +1,4 @@
-name: Build Android and iOS
+name: Build Android and iOS with Expo
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
       - release/*
 
 jobs:
-  build-android:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,50 +22,20 @@ jobs:
     - name: Install Dependencies
       run: yarn install
 
-    - name: Build Android
-      run: |
-        cd android
-        ./gradlew assembleRelease
+    - name: Install EAS CLI
+      run: yarn global add eas-cli
 
-    - name: Upload Android APK
-      uses: actions/upload-artifact@v3
-      with:
-        name: Android APK
-        path: android/app/build/outputs/apk/release/app-release.apk
-        retention-days: 3
+    - name: Authenticate with Expo
+      env:
+        EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      run: eas whoami
 
-  build-ios:
-    runs-on: macos-latest
+    - name: Build Android App
+      env:
+        EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      run: eas build --platform android --profile preview --non-interactive
 
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-
-    - name: Install Dependencies
-      run: yarn install
-
-    - name: Install Pods
-      run: |
-        cd ios
-        pod install
-
-    - name: Build iOS
-      run: |
-        cd ios
-        xcodebuild -workspace Blockhouse.xcworkspace \
-        -scheme Blockhouse \
-        -sdk iphoneos \
-        -configuration Release \
-        clean build
-
-    - name: Upload iOS Build
-      uses: actions/upload-artifact@v3
-      with:
-        name: iOS Build
-        path: ios/build
-        retention-days: 3
+    - name: Build iOS App
+      env:
+        EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      run: eas build --platform ios --profile preview --non-interactive
