@@ -19,11 +19,18 @@ jobs:
         node-version: '18'
 
     - name: Install Dependencies
-      run: npm install
+      run: yarn install
+
+    - name: Set up Expo CLI
+      run: yarn global add expo-cli
+
+    - name: Login to Expo
+      env:
+        EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      run: expo whoami
 
     - name: Run Lint
-      run: npm run lint
+      run: yarn lint
 
     - name: Run Tests
-      run: npm test
-
+      run: yarn test
