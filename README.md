@@ -33,12 +33,6 @@ Before setting up the app, ensure you have the following installed:
 
 ## Setup and Installation
 
-### Clone the Repository
-```bash
-git clone <repo_url>
-cd <repo_name>
-```
-
 ### Install Dependencies
 
 ```bash
