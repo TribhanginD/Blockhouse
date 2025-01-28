@@ -124,17 +124,4 @@ Troubleshooting
 
 * * *
 
-Contributions
--------------
 
-Contributions are welcome! Submit a pull request with a detailed description of your changes.
-
-* * *
-
-License
--------
-
-This project is open-source and available under the **MIT License**.
-
-```
-```
