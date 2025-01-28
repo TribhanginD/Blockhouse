@@ -1,0 +1,45 @@
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs
+*.log
+logs/*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Build and Dependency Files
+package-lock.json
+tsconfig.json
+
+# Expo-specific files
+.expo/
+.expo-shared/
+
+# Asset folders
+assets/
+
+# Environment and config files
+*.env
+expo-env.d.ts
+
+# Temporary files
+*.tmp
+*.temp
+
+# Video files
+*.mp4
+*.mpeg
+*.avi
+*.mov
+
+# IDE-specific files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
